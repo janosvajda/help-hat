@@ -15,13 +15,10 @@ export class VirtualHatService implements OnModuleInit {
   public onModuleInit(): void {}
 
   public async createVirtualHat(data: CreateVirtualHatRequest): Promise<CreateVirtualHatResponse> {
-
     const vh: VirtualHat = new VirtualHat();
-
-    vh.value = 10; //@todo remove hard coded price
-
+    vh.value = data.value;
+    vh.userId = data.userId;
     await this.repository.save(vh);
-
     return { id: vh.id, error: null, status: HttpStatus.OK };
   }
 }
