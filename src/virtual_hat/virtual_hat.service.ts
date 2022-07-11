@@ -1,8 +1,6 @@
-import { HttpStatus, Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { HttpStatus, Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientGrpc } from '@nestjs/microservices';
 import { Repository } from 'typeorm';
-import { firstValueFrom } from 'rxjs';
 import { VirtualHat } from './virtual_hat.entity';
 import { CreateVirtualHatRequest, CreateVirtualHatResponse } from './proto/virtual_hat.pb';
 
@@ -12,7 +10,7 @@ export class VirtualHatService implements OnModuleInit {
   @InjectRepository(VirtualHat)
   private readonly repository: Repository<VirtualHat>;
 
-  public onModuleInit(): void {}
+  public onModuleInit(): void { }
 
   public async createVirtualHat(data: CreateVirtualHatRequest): Promise<CreateVirtualHatResponse> {
     const vh: VirtualHat = new VirtualHat();

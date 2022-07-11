@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Virtual Hat service!"', () => {
-      expect(appController.getHello()).toBe('Virtual Hat service!');
+    it('should return "Virtual Hat service."', () => {
+      expect(appController.getHello()).toBe('Virtual Hat service.');
     });
   });
 });
